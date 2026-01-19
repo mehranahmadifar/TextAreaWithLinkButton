@@ -14,15 +14,13 @@ export class TextAreaWithLinkButton implements ComponentFramework.StandardContro
   ) {
     this.notifyOutputChanged = notifyOutputChanged;
     this.container = container;
-
-    // wrapper flex برای چسبیدن دکمه به input
+    
     const wrapper = document.createElement("div");
     wrapper.style.display = "flex";
     wrapper.style.alignItems = "center";
     wrapper.style.width = "100%";
     wrapper.style.position = "relative";
 
-    // input اصلی
     this.input = document.createElement("input");
     this.input.type = "text";
     this.input.style.flex = "1";
@@ -35,9 +33,8 @@ export class TextAreaWithLinkButton implements ComponentFramework.StandardContro
     this.input.style.transition = "border-color 0.2s, box-shadow 0.2s";
     this.input.oninput = () => this.notifyOutputChanged();
 
-    // focus و hover style مثل پاور اپز
     this.input.addEventListener("focus", () => {
-      this.input.style.borderColor = "#0078d4"; // رنگ آبی پاور اپز
+      this.input.style.borderColor = "#0078d4"; 
       this.input.style.boxShadow = "0 0 0 1px #0078d4 inset";
     });
     this.input.addEventListener("blur", () => {
@@ -51,13 +48,12 @@ export class TextAreaWithLinkButton implements ComponentFramework.StandardContro
       this.input.style.borderColor = this.input === document.activeElement ? "#0078d4" : "#d2d2d2";
     });
 
-    // دکمه آیکون لینک
     this.button = document.createElement("button");
     this.button.innerHTML = "🔗";
     this.button.style.height = "32px";
     this.button.style.width = "32px";
     this.button.style.border = "1px solid #d2d2d2";
-    this.button.style.borderLeft = "none"; // چسبیدن به input
+    this.button.style.borderLeft = "none"; 
     this.button.style.borderRadius = "0 2px 2px 0";
     this.button.style.background = "#f4f4f4";
     this.button.style.cursor = "pointer";
